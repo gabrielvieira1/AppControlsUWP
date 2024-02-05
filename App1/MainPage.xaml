@@ -10,7 +10,7 @@
 
   <Grid>
     <!--<local:Rating Value="5" />-->
-    <local:LeftRightContentControl LeftContent="{Binding}" RightContent="{Binding}">
+    <!--<local:LeftRightContentControl LeftContent="{Binding}" RightContent="{Binding}">
       <local:LeftRightContentControl.LeftTemplate>
         <DataTemplate>
           <TextBlock FontSize="40" VerticalAlignment="Center" Text="{Binding}"/>
@@ -21,6 +21,18 @@
           <local:Rating Value="{Binding}"/>
         </DataTemplate>
       </local:LeftRightContentControl.RightTemplate>
-    </local:LeftRightContentControl>
+    </local:LeftRightContentControl>-->
+
+    <!--<local:GenericRatingControl Rating="4">
+      <local:GenericRatingControl.Template>
+        <ControlTemplate TargetType="local:GenericRatingControl">
+          <TextBlock FontSize="50" Text="{Binding Rating, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+        </ControlTemplate>
+      </local:GenericRatingControl.Template>
+    </local:GenericRatingControl>-->
+
+    <local:ClearableContentControl>
+      <TextBlock Text="Some Text" FontSize="40" />
+    </local:ClearableContentControl>
   </Grid>
 </Page>

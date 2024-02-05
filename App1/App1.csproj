@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClearableContentControl.cs" />
+    <Compile Include="GenericRatingControl.cs" />
     <Compile Include="LeftRightContentControl.xaml.cs">
       <DependentUpon>LeftRightContentControl.xaml</DependentUpon>
     </Compile>
@@ -161,6 +163,10 @@
     <Page Include="Rating.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

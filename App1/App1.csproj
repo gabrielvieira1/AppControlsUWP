@@ -131,6 +131,7 @@
     <Compile Include="Rating.xaml.cs">
       <DependentUpon>Rating.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UniformWidthPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

@@ -31,8 +31,16 @@
       </local:GenericRatingControl.Template>
     </local:GenericRatingControl>-->
 
-    <local:ClearableContentControl>
+    <!--<local:ClearableContentControl>
       <TextBlock Text="Some Text" FontSize="40" />
-    </local:ClearableContentControl>
+    </local:ClearableContentControl>-->
+
+        <local:UniformWidthPanel>
+            <local:Rating Value="1"/>
+            <local:Rating Value="2"/>
+            <local:Rating Value="3"/>
+            <local:Rating Value="4"/>
+            <local:Rating Value="5"/>
+        </local:UniformWidthPanel>
   </Grid>
 </Page>

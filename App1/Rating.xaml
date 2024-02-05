@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="App1.Rating"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="RC"
+    Foreground="Gold"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+  <Grid>
+    <Grid.Resources>
+      <local:GreaterOrEqualToIntToVisibilityConverter CompareValue="1" x:Key="GOE1" />
+      <local:GreaterOrEqualToIntToVisibilityConverter CompareValue="2" x:Key="GOE2" />
+      <local:GreaterOrEqualToIntToVisibilityConverter CompareValue="3" x:Key="GOE3" />
+      <local:GreaterOrEqualToIntToVisibilityConverter CompareValue="4" x:Key="GOE4" />
+      <local:GreaterOrEqualToIntToVisibilityConverter CompareValue="5" x:Key="GOE5" />
+    </Grid.Resources>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <SymbolIcon Grid.Column="0" Symbol="Favorite" Visibility="{Binding Value, ElementName=RC, Converter={StaticResource GOE1}}"/>
+    <SymbolIcon Grid.Column="1" Symbol="Favorite" Visibility="{Binding Value, ElementName=RC, Converter={StaticResource GOE2}}"/>
+    <SymbolIcon Grid.Column="2" Symbol="Favorite" Visibility="{Binding Value, ElementName=RC, Converter={StaticResource GOE3}}"/>
+    <SymbolIcon Grid.Column="3" Symbol="Favorite" Visibility="{Binding Value, ElementName=RC, Converter={StaticResource GOE4}}"/>
+    <SymbolIcon Grid.Column="4" Symbol="Favorite" Visibility="{Binding Value, ElementName=RC, Converter={StaticResource GOE5}}"/>
+  </Grid>
+</UserControl>

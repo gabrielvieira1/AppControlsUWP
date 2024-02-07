@@ -27,9 +27,27 @@ namespace App1
 
     // Using a DependencyProperty as the backing store for Scale.  This enables animation, styling, binding, etc...
     public static readonly DependencyProperty ScaleProperty =
-        DependencyProperty.RegisterAttached("Scale", typeof(double), typeof(UniformWidthPanel), new PropertyMetadata(1.0));
+        DependencyProperty.RegisterAttached("Scale", typeof(double), typeof(UniformWidthPanel), new PropertyMetadata(1.0, (o, a) =>
+        {
+          var uwp = GetAncestor<UniformWidthPanel>(o as FrameworkElement);
+          if (uwp != null)
+          {
+            uwp.InvalidateMeasure();
+            uwp.UpdateLayout();
+          }
+        }));
 
 
+    private static T GetAncestor<T>(FrameworkElement fe)
+    {
+      var Parent = Windows.UI.Xaml.Media.VisualTreeHelper.GetParent(fe);
+      if (Parent == null)
+        return default(T);
+      if (Parent is T)
+        return (T)(object)Parent;
+      else
+        return GetAncestor<T>(Parent as FrameworkElement);
+    }
 
     protected override Size MeasureOverride(Size availableSize)
     {
@@ -60,7 +78,7 @@ namespace App1
 
           Size scaledChildSize = availableSize;
           var childScale = UniformWidthPanel.GetScale(Child);
-          scaledChildSize.Width *= childScale / totalScale; 
+          scaledChildSize.Width *= childScale / totalScale;
 
           Child.Measure(scaledChildSize);
           if (Child.DesiredSize.Height > newSize.Height)
